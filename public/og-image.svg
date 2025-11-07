@@ -1,0 +1,58 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#gradient)"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0F23;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1A1A3A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F0F23;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C084FC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDD6FE;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main content -->
+  <g transform="translate(150, 200)">
+    <!-- Logo icon -->
+    <circle cx="50" cy="50" r="40" fill="url(#logoGradient)" opacity="0.9"/>
+    <path d="M30 50 L45 35 L70 35 L70 65 L45 65 Z" fill="white" opacity="0.9"/>
+    
+    <!-- Title -->
+    <text x="120" y="40" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="white">
+      Aptitude Test X
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="120" y="75" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.8)">
+      Advanced Aptitude Testing Platform
+    </text>
+    
+    <!-- Features -->
+    <g transform="translate(0, 120)">
+      <text x="0" y="0" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="500" fill="rgba(255,255,255,0.9)">
+        ✨ AI-Powered Question Generation
+      </text>
+      <text x="0" y="35" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="500" fill="rgba(255,255,255,0.9)">
+        📊 Real-time Analytics & Monitoring
+      </text>
+      <text x="0" y="70" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="500" fill="rgba(255,255,255,0.9)">
+        🎮 Gamified Learning Experience
+      </text>
+    </g>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="1000" cy="150" r="100" fill="url(#logoGradient)" opacity="0.1"/>
+  <circle cx="1050" cy="400" r="60" fill="url(#logoGradient)" opacity="0.15"/>
+  <circle cx="100" cy="500" r="80" fill="url(#logoGradient)" opacity="0.1"/>
+</svg>

@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Aptitude Test Platform Design System */
+
+@layer base {
+  :root {
+    /* Futuristic Dark Theme (Default) */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 8% 6%;
+    --background-tertiary: 240 6% 8%;
+    --foreground: 210 40% 98%;
+
+    /* Glass Cards */
+    --card: 240 10% 8%;
+    --card-foreground: 210 40% 98%;
+    --glass: 240 5% 15% / 0.1;
+    --glass-border: 240 5% 80% / 0.1;
+
+    /* Neon Purple to Cyan System */
+    --primary: 270 100% 65%;
+    --primary-glow: 270 100% 75%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 195 100% 65%;
+    --secondary-glow: 195 100% 75%;
+    --secondary-foreground: 240 10% 3.9%;
+
+    /* Accent Neon Colors */
+    --accent: 320 100% 70%;
+    --accent-glow: 320 100% 80%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 120 80% 60%;
+    --success-glow: 120 80% 70%;
+    --warning: 45 100% 60%;
+    --danger: 0 80% 65%;
+
+    /* Muted Elements */
+    --muted: 240 6% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Borders & Inputs */
+    --border: 240 6% 20%;
+    --border-glow: 270 100% 70% / 0.3;
+    --input: 240 6% 15%;
+    --ring: 270 100% 70%;
+
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, hsl(270 100% 65%), hsl(195 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(320 100% 70%), hsl(270 100% 65%));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--primary-glow) / 0.3), transparent 70%);
+
+    /* Shadows & Glows */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-neon: 0 0 20px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 270 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 6% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 6% 15%;
+    --sidebar-ring: 270 100% 70%;
+  }
+
+  /* Light mode for future toggle implementation */
+  .light {
+    --background: 0 0% 100%;
+    --background-secondary: 0 0% 98%;
+    --background-tertiary: 0 0% 96%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --glass: 240 5% 95% / 0.1;
+    --glass-border: 240 5% 20% / 0.1;
+
+    --primary: 270 100% 55%;
+    --primary-glow: 270 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 195 100% 55%;
+    --secondary-glow: 195 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 320 100% 60%;
+    --accent-glow: 320 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 240 5% 95%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --border: 240 6% 90%;
+    --border-glow: 270 100% 60% / 0.2;
+    --input: 240 6% 95%;
+    --ring: 270 100% 60%;
+
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
+    --shadow-neon: 0 0 20px hsl(var(--accent) / 0.3), 0 0 40px hsl(var(--accent) / 0.2);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--secondary) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--accent) / 0.1) 0%, transparent 50%);
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-primary to-secondary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply from-primary-glow to-secondary-glow;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Effects */
+  .glass-card {
+    @apply bg-glass backdrop-blur-xl border border-glass-border;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card-glow {
+    @apply glass-card;
+    box-shadow: var(--shadow-glass), var(--shadow-glow);
+  }
+
+  /* Neon Glow Effects */
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .primary-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .secondary-glow {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.5), 0 0 40px hsl(var(--secondary) / 0.3);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
+  }
+
+  /* Animated Gradient Backgrounds */
+  .animated-gradient {
+    background: var(--gradient-primary);
+    background-size: 400% 400%;
+    animation: gradientFlow 6s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Hover Lift Effect */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1 scale-[1.02];
+    box-shadow: var(--shadow-glass), var(--shadow-glow);
+  }
+
+  /* Pulse Animation */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulseGlow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.3);
+    }
+  }
+
+  /* Typing Animation */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
